@@ -1,1 +1,1 @@
-#= jquery/jquery
+#= require jquery/jquery

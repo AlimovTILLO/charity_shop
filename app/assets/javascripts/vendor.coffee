@@ -1,3 +1,3 @@
 #= require jquery
-#= require rails
+#= require jquery.ujs
 #= require bootstrap
