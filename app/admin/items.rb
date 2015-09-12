@@ -11,6 +11,13 @@ ActiveAdmin.register Item do
   filter :created_at
   filter :updated_at
 
+  batch_action :set_random_foundations do |ids|
+    Item.find(ids).each do |item|
+      item.update foundation_id: Foundation.all.sample.id
+    end
+    redirect_to collection_path, notice: 'Done'
+  end
+
   index do
     selectable_column
     column :user do |item|
