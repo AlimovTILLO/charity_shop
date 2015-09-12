@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912171606) do
+ActiveRecord::Schema.define(version: 20150912201530) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -38,8 +38,9 @@ ActiveRecord::Schema.define(version: 20150912171606) do
     t.string   "logo"
     t.string   "link"
     t.string   "legal_status"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "balance",      default: 0
   end
 
   create_table "items", force: :cascade do |t|
@@ -48,8 +49,33 @@ ActiveRecord::Schema.define(version: 20150912171606) do
     t.string   "description"
     t.integer  "price"
     t.string   "thumbnail"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "foundation_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.integer  "seller_id"
+    t.integer  "buyer_id"
+    t.integer  "item_id"
+    t.integer  "price"
+    t.datetime "confirmed_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer  "purchase_id"
+    t.integer  "from_user_id"
+    t.integer  "from_user_sum"
+    t.integer  "to_user_id"
+    t.integer  "to_user_sum"
+    t.integer  "from_foundation_id"
+    t.integer  "from_foundation_sum"
+    t.integer  "to_foundation_id"
+    t.integer  "to_foundation_sum"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,6 +91,7 @@ ActiveRecord::Schema.define(version: 20150912171606) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "balance",                default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

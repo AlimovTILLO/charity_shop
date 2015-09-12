@@ -14,6 +14,7 @@ ActiveAdmin.register Item do
   filter :updated_at
 
   index do
+    selectable_column
     column :user do |item|
       link_to item.user.email, admin_user_path(id: item.user_id)
     end
@@ -38,7 +39,7 @@ ActiveAdmin.register Item do
       row :description
       row :price
       row :thumbnail do |item|
-        image_tag item.thumbnail.small
+        image_tag item.thumbnail.thumb
       end
     end
   end

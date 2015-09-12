@@ -1,5 +1,7 @@
 class Foundation < ActiveRecord::Base
-  validates :title, presence: true
+  mount_uploader :logo, LogotypeUploader
+
+  validates :name, presence: true
   validates :description, presence: true
   validates :logo, presence: true
 end
