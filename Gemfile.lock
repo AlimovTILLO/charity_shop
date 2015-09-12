@@ -84,6 +84,7 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
+    puma (2.13.4)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -160,6 +161,7 @@ DEPENDENCIES
   devise
   jbuilder
   mini_magick
+  puma
   rails (= 4.2.4)
   rails-assets-bootstrap!
   rails-assets-jquery!
