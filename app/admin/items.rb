@@ -1,6 +1,4 @@
 ActiveAdmin.register Item do
-  actions :index, :show, :delete
-
   permit_params :title,
                 :description,
                 :price,
@@ -26,6 +24,9 @@ ActiveAdmin.register Item do
     column :description do |item|
       item.description.truncate 100
     end
+    column :foundation do |item|
+      item.foundation.name if item.foundation
+    end
     column :price
     actions
   end
@@ -42,5 +43,17 @@ ActiveAdmin.register Item do
         image_tag item.thumbnail.thumb
       end
     end
+  end
+
+  form do |f|
+    f.inputs 'Item Details' do
+      f.input :foundation
+      f.input :title
+      f.input :description
+      f.input :price
+      f.input :thumbnail
+    end
+
+    f.actions
   end
 end

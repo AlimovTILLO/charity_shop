@@ -27,6 +27,13 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :foundation_id %>
+    <%= f.collection_select :foundation_id, Foundation.all, :id,
+                            :name, {}, class: 'form-control'
+    %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :thumbnail %>
     <%= f.file_field :thumbnail %>
   </div>
