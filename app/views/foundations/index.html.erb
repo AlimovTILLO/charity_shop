@@ -1,0 +1,15 @@
+<% @foundations.each do |foundation| %>
+	<div class="panel panel-default">
+	  <div class="panel-body">
+		  <div class="row">
+			  <div class="col-md-3"><%= image_tag foundation.logo.thumb %></div>
+			  <div class="col-md-8">
+			    <p class="lead"><%= foundation.name %></p>
+				  <p><%= foundation.description %></p>
+				  <p><b>Legal Status:</b> <%= foundation.legal_status %></p>
+				  <p><b>Link:</b> <%= link_to foundation.link %></p>
+			  </div>
+		  </div>
+	  </div>
+	</div>
+<% end %>

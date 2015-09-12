@@ -4,9 +4,10 @@
       <%= image_tag @item.thumbnail.small, class: 'item_image', style: 'width: 100%; border: 1px solid silver; border-radius: 3px; padding: 3px;' %>
     </div>
     <div class="col-md-8 col-xs-12">
-      <h2><%=@item.title %></h2>
-      <h5><%=@item.description %></h5>
-      <p>By <%=@item.user.email %></p>
+      <h2><%= @item.title %></h2>
+      <h5><%= @item.description %></h5>
+      <p>By: <%=@item.user.email %></p>
+      <p>Foundation: <%=@item.foundation.name %></p>
       <p class="price"><%=@item.price %></p>
       <button class="btn btn-primary">Buy</button>
     </div>
