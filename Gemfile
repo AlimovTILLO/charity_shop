@@ -9,6 +9,7 @@ gem 'jbuilder'
 gem 'devise'
 gem 'mini_magick'
 gem 'carrierwave'
+gem 'puma'
 
 #---------------------------------------------------------------
 # Frontend
