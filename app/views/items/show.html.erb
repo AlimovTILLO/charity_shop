@@ -3,7 +3,7 @@
 <div class="container-fulid">
   <div class="row">
     <div class="col-md-4 col-xs-12">
-      <%= image_tag 'sticky_cards.jpg', class: 'item_image', style: 'width: 100%;' %>
+      <%= image_tag @item.thumbnail.small, class: 'item_image', style: 'width: 100%;' %>
     </div>
     <div class="col-md-8 col-xs-12">
       <h2><%=@item.title %></h2>
