@@ -11,7 +11,9 @@
 <%= render 'shared/header' %>
 
 <div class="container">
-    <p id="notice" class="alert alert-info">asdASDASD</p>
+		<% if notice %>
+      <p id="notice" class="alert alert-info"><%= notice %></p>
+		<% end %>
 
   <%= yield %>
 </div>
