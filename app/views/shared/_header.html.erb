@@ -10,13 +10,14 @@
       <a class="navbar-brand" href="/">Raxmat</a>
     </div>
 
-    <ul class="nav navbar-nav navbar-right">
+    <div class="nav navbar-nav navbar-right" style="padding-top: 7px;">
       <% if user_signed_in? %>
-		    <li><a href="#"><%= current_user.email %></a></li>
-        <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+		    <a href="#"><%= current_user.email %></a>
+        <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "btn btn-danger" %>
       <% else %>
-        <li><%= link_to 'Sign in', new_user_session_path %></li>
+        <%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary" %>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success" %>
       <% end %>
-    </ul>
+    </div>
   </div>
 </nav>
