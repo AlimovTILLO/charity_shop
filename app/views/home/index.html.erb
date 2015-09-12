@@ -7,9 +7,24 @@
 </div>
 
 <div class="row">
-  <% @items.each do |item| %>
-    <% 10.times do %>
-      <%= render item %>
-    <% end %>
-  <% end %>
+	<div class="col-md-9">
+	  <% @items.each do |item| %>
+	    <% 10.times do %>
+	      <%= render item %>
+	    <% end %>
+	  <% end %>
+	</div>
+
+	<div class="col-md-3">
+		<%= link_to 'Add item', new_item_path, class: 'btn btn-success btn-block btn-lg' %>
+		<hr/>
+		<p class="lead">Categories</p>
+	  <ul class="list-group">
+	    <li class="list-group-item"><a href="#">Cras justo odio</a></li>
+	    <li class="list-group-item"><a href="#">Dapibus ac facilisis in</a></li>
+	    <li class="list-group-item"><a href="#">Morbi leo risus</li>
+	    <li class="list-group-item"><a href="#">Porta ac consectetur ac</a></li>
+	    <li class="list-group-item"><a href="#">Vestibulum at eros</a></li>
+	  </ul>
+	</div>
 </div>
