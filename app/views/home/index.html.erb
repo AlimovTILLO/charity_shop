@@ -1,31 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Project name</a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <form class="navbar-form navbar-right">
-        <div class="form-group">
-          <input type="text" placeholder="Email" class="form-control">
-        </div>
-        <div class="form-group">
-          <input type="password" placeholder="Password" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-success">Sign in</button>
-      </form>
-    </div><!--/.navbar-collapse -->
-  </div>
-</nav>
-
-<!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
   <div class="container">
     <h1>Welcome to Raxmat!</h1>
@@ -34,37 +6,22 @@
   </div>
 </div>
 
-<div class="container-fluid">
-  <% counter = 1 %>
+<div class="row">
   <% @items.each do |item| %>
-    <% if counter == 1 %>
-      <div class="row">
-    <% end %>
-        <div class="col-xs-12 col-md-4">
-          <a href="/items/<% item.id %>">
-            <div class="item">
-              <%=image_tag "sticky_cards.jpg" %>
-              <div class="item-title">
-                <%= item.title %>
-              </div>
-              <div class="item-price">
-                <%= item.price %>
-              </div>
+    <% 10.times do %>
+      <div class="col-xs-12 col-md-4">
+        <a href="/items/<% item.id %>">
+          <div class="item">
+            <%= image_tag "sticky_cards.jpg", class: 'item_image' %>
+            <div class="item-title">
+              <%= item.title %>
             </div>
-          </a>
-        </div>
-
-    <% counter += 1 %>
-
-    <% if counter == 3 %>
+            <div class="item-price">
+              <%= item.price %>
+            </div>
+          </div>
+        </a>
       </div>
-      <% counter = 1 %>
     <% end %>
   <% end %>
-
-  <hr>
-
-  <footer>
-    <p>&copy; Company 2014</p>
-  </footer>
 </div>

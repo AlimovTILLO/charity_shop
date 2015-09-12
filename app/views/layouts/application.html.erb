@@ -7,9 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<%= render 'shared/header' %>
+
 <div class="container">
+  <p id="notice"><%= notice %></p>
   <%= yield %>
 </div>
+
+<%= render 'shared/footer' %>
+
 <%= javascript_include_tag 'vendor' %>
 <%= javascript_include_tag 'application' %>
 </body>

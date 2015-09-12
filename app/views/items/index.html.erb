@@ -1,32 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<div class="container-fluid">
-  <% counter = 1 %>
-  <% @items.each do |item| %>
-    <% if counter == 1 %>
-      <div class="row">
-    <% end %>
-        <div class="col-xs-12 col-md-4">
-          <a href="/items/<% item.id %>">
-            <div class="item">
-              <%=image_tag "sticky_cards.jpg" %>
-              <div class="item-title">
-                <%= item.title %>
-              </div>
-              <div class="item-price">
-                <%= item.price %>
-              </div>
-            </div>
-          </a>
-        </div>
-
-    <% counter += 1 %>
-
-    <% if counter == 3 %>
-      </div>
-      <% counter = 1 %>
-    <% end %>
-  <% end %>
-
-  <%=link_to "Add new item", new_item_path %>
+<div class="row">
+	<% @items.each do |item| %>
+		<% 10.times do %>
+		  <div class="col-xs-12 col-md-4">
+		    <a href="/items/<% item.id %>">
+		      <div class="item">
+		        <%= image_tag "sticky_cards.jpg", class: 'item_image' %>
+		        <div class="item-title">
+		          <%= item.title %>
+		        </div>
+		        <div class="item-price">
+		          <%= item.price %>
+		        </div>
+		      </div>
+		    </a>
+		  </div>
+		<% end %>
+	<% end %>
 </div>
+
+<%=link_to "Add new item", new_item_path %>
