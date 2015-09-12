@@ -1,13 +1,30 @@
 source 'https://rubygems.org'
 
+#---------------------------------------------------------------
+# Backend
+#---------------------------------------------------------------
 gem 'rails', '4.2.4'
 gem 'sqlite3'
+gem 'jbuilder'
+
+#---------------------------------------------------------------
+# Frontend
+#---------------------------------------------------------------
 gem 'sass-rails'
-gem 'uglifier'
 gem 'coffee-rails'
 
-gem 'jquery-rails'
-gem 'jbuilder'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-jquery'
+  gem 'rails-assets-jquery-ujs'
+  gem 'rails-assets-bootstrap'
+end
+
+#---------------------------------------------------------------
+# Environ
+#---------------------------------------------------------------
+group :production do
+  gem 'uglifier'
+end
 
 group :development, :test do
   gem 'byebug'

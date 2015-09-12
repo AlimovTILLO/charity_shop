@@ -1,1 +1,5 @@
 //= require_self
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
