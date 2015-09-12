@@ -13,6 +13,7 @@ ActiveAdmin.register Foundation do
   filter :legal_status
   filter :created_at
   filter :updated_at
+  filter :balance
 
   index do
     selectable_column
@@ -23,6 +24,7 @@ ActiveAdmin.register Foundation do
     column :name
     column :description
     column :legal_status
+    column :balance
     column :link do |foundation|
       link_to foundation.link
     end
@@ -35,6 +37,7 @@ ActiveAdmin.register Foundation do
       f.input :description
       f.input :legal_status
       f.input :link
+      f.input :balance
       f.input :logo, hint: (f.object.logo.present?  ? image_tag(f.object.logo.thumb) : '')
     end
 
