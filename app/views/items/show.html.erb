@@ -1,19 +1,23 @@
 <div class="container-fulid">
   <div class="row">
+    <div class="col-md-2 hidden-xs"></div>
     <div class="col-md-4 col-xs-12">
       <%= image_tag @item.thumbnail.small, class: 'item_image', style: 'width: 100%; border: 1px solid silver; border-radius: 3px; padding: 3px;' %>
+      <p class="share_link">
+        <%= render_shareable buttons: %w(twitter facebook tumblr google_plus) %>
+      </p>
     </div>
-    <div class="col-md-8 col-xs-12">
-      <h2><%= @item.title %></h2>
-      <h5><%= @item.description %></h5>
+    <div class="col-md-4 col-xs-12" style="text-align: center;">
+      <h1><%= @item.title %></h1>
+      <h4><%= @item.description %></h4>
       <p>By: <%= @item.user.email %></p>
-      <p>Foundation: <%= @item.foundation.name %></p>
-      <p>Charity: <%= @item.charity %>%</p>
-      <p class="price"><%= @item.price %></p>
-	    <p class="share_link">
-	      <%= render_shareable buttons: %w(twitter facebook tumblr google_plus) %>
-	    </p>
-	    <%= link_to 'Buy', item_buy_path(@item), class: 'btn btn-primary' %>
+      <!-- <p>Foundation: <%= @item.foundation.name %></p>
+      <p>Charity: <%= @item.charity %>%</p> -->
+      <h3 class="price"><%= @item.price %></h3>
+      <h4><%= @item.charity %>% will go to <%= @item.foundation.name %></h4>
+      <br>
+	    <%= link_to 'Buy now', item_buy_path(@item), class: 'btn btn-primary btn-lg' %>
     </div>
+    <div class="col-md-2 hidden-xs"></div>
   </div>
 </div>

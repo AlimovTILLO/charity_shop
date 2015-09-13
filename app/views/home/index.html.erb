@@ -57,14 +57,16 @@
 <div class="row">
 	<div class="col-md-9">
 	  <% @items.each do |item| %>
+	  <% 10.times do %>
       <%= render item %>
+      <% end %>
 	  <% end %>
 	</div>
 
-	<div class="col-md-3">
+	<div class="col-md-3" id="sidebar_cats">
 		<%= link_to 'Add item', new_item_path, class: 'btn btn-success btn-block btn-lg' %>
 		<hr/>
-		<div id="sidebar_cats">
+		<div>
 			<p class="lead">Categories</p>
 		  <ul class="list-group">
 		    <li class="list-group-item"><a href="#">Clothing and shoes</a></li>
@@ -77,3 +79,25 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(function() {
+
+    var $sidebar   = $("#sidebar_cats"), 
+        $window    = $(window),
+        offset     = $sidebar.offset(),
+        topPadding = 15;
+
+    $window.scroll(function() {
+        if ($window.scrollTop() > offset.top) {
+            $sidebar.stop().animate({
+                marginTop: $window.scrollTop() - offset.top + topPadding
+            });
+        } else {
+            $sidebar.stop().animate({
+                marginTop: 0
+            });
+        }
+    }); 
+});
+</script>
