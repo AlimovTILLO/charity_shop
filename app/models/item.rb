@@ -15,11 +15,24 @@ class Item < ActiveRecord::Base
     options_for_select(Array[*CHARITIES.collect {|v| [v, CHARITIES.index(v)] }])
   end
 
-  def charity_value
-    (price * (charity/100.0)).to_i
+  def commission
+    (price * 0.15).to_i
   end
 
-  def profit_value
-    price - charity_value
+  def commissioned_price
+    price - commission
+  end
+
+  def charity_value
+    (commissioned_price * (charity/100.0)).to_i
+  end
+
+  def seller_value
+    r = commissioned_price - charity_value
+    if r == 0
+      'Rahmat!'
+    else
+      r
+    end
   end
 end
