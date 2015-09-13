@@ -18,11 +18,12 @@
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Cras justo odio</a></li>
-          <li><a href="#">Dapibus ac facilisis in</a></li>
-          <li><a href="#">Morbi leo risus</a></li>
-          <li><a href="#">Porta ac consectetur ac</a></li>
-          <li><a href="#">Vestibulum at eros</a></li>
+          <li><a href="#">Clothing and shoes</a></li>
+          <li><a href="#">Books</a></li>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">Health and beauty</a></li>
+          <li><a href="#">Goods for home</a></li>
+          <li><a href="#">Other</a></li>
         </ul>
       </li>
     </ul>
@@ -40,11 +41,9 @@
       <% end %>
     </div>
   </div>
-  <% if current_page?('/') %>
-  <div class="row">
-    <div class="col-md-12 col-xs-12">
-      <%=image_tag "children-cover-02.png", style: "width: 100%;" %>
-    </div>
-  </div>
-  <% end %>
 </nav>
+<% if current_page?('/') %>
+  <div class="main-img">
+    <%=image_tag "children-cover-02.jpg", style: "width: 100%;" %>
+  </div>
+<% end %>
