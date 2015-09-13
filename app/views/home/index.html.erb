@@ -21,20 +21,36 @@
 	.navbar-nav > li > a {
 		color: white !important;
 	}
+
+	img.round-img {
+		border-radius: 50%;
+		width: 150px;
+		position: absolute;
+		top: -150px;
+		left: 50%;
+		transform: translateX(-50%);
+		box-shadow: 0 0 15px rgba(0,0,0, 0.5);
+	}
 </style>
 
-<div class="row">
-	<div class="col-md-6 col-xs-12">
-		<h3>For buyers:</h3>
-		<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Find products & reduced prices</h4>
-		<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Support your favorite cause</h4>
-		<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Safe money transactions</h4>
+<div class="row" style="padding-bottom: 180px; position: relative; top: 105px;">
+	<div class="col-md-6 col-xs-12" style="position: relative; text-align: center;">
+		<%= image_tag 'person-blue.jpg', class: 'round-img' %>
+		<h3 style="text-align: center;">For buyers</h3>
+		<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Access to charity events and other offers by RaXmatga</h4>
+		<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Donation options with verified charity organizations</h4>
+		<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Transparency of charity funds and reports</h4>
+		<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Products at low cost</h4>
+		<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ownership to society</h4>
 	</div>
-	<div class="col-md-6 col-xs-12">
-		<h3>For sellers:</h3>
-		<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Perfect place for web hosting and advertising your products</h4>
-		<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> No additional commissions for selling</h4>
-		<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Help someone at no cost</h4>
+
+	<div class="col-md-6 col-xs-12" style="position: relative; text-align: center;">
+		<%= image_tag 'person-green.jpg', class: 'round-img' %>
+		<h3 style="text-align: center;">For sellers</h3>
+		<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Access to charity events and other offers by RaXmat.ga</h4>
+		<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Easy in use market place</h4>
+		<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Positive image, giving</h4>
+		<h4><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> No transaction costs</h4>
 	</div>
 </div>
 
