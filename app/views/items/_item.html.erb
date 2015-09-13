@@ -8,6 +8,7 @@
       <h3><%= item.title %></h3>
       <!--<p><%= item.description.truncate 150 %></p>-->
       <p class="lead price"><%= item.price %></p>
+      <p class="lead" style="font-style: italic; font-size: 13px;"><%= item.charity %>% goes to foundation <%= item.foundation.name %></p>
       <p>
         <a href="/items/<%=item.id %>" class="btn btn-success">View</a>
       </p>
