@@ -29,11 +29,14 @@
 
     <div class="nav navbar-nav navbar-right" style="padding-top: 7px;">
       <% if user_signed_in? %>
-		    <a href="#"><%= current_user.email %></a>
-        <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "btn btn-danger" %>
+        <span style="color: #ff7f70;">Balance: <%= current_user.balance %> c.</span>
+		    &nbsp;&nbsp;
+        <a href="#"><%= current_user.email %></a>
+        &nbsp;&nbsp;
+        <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: 'btn btn-danger' %>
       <% else %>
-        <%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary" %>
-        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success" %>
+        <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary' %>
+        <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-success' %>
       <% end %>
     </div>
   </div>

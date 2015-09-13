@@ -1,10 +1,9 @@
 ActiveAdmin.register Item do
-  actions :index, :show, :delete
-
   permit_params :title,
                 :description,
                 :price,
-                :thumbnail
+                :thumbnail,
+                :charity
 
   filter :user_email_equals
   filter :title
@@ -12,6 +11,21 @@ ActiveAdmin.register Item do
   filter :price
   filter :created_at
   filter :updated_at
+
+  batch_action :set_random_foundations do |ids|
+    Item.find(ids).each do |item|
+      item.update foundation_id: Foundation.all.sample.id
+    end
+    redirect_to collection_path, notice: 'Done'
+  end
+
+  batch_action :set_charity do |ids|
+    Item.find(ids).each do |item|
+      item.update charity: Item::CHARITIES.sample
+    end
+    redirect_to collection_path, notice: 'Done'
+  end
+
 
   index do
     selectable_column
@@ -26,7 +40,11 @@ ActiveAdmin.register Item do
     column :description do |item|
       item.description.truncate 100
     end
+    column :foundation do |item|
+      item.foundation.name if item.foundation
+    end
     column :price
+    column :charity
     actions
   end
 
@@ -38,9 +56,23 @@ ActiveAdmin.register Item do
       row :title
       row :description
       row :price
+      row :charity
       row :thumbnail do |item|
         image_tag item.thumbnail.thumb
       end
     end
+  end
+
+  form do |f|
+    f.inputs 'Item Details' do
+      f.input :foundation
+      f.input :title
+      f.input :description
+      f.input :price
+      f.input :thumbnail
+      f.input :charity, as: :select, collection: Item::CHARITIES
+    end
+
+    f.actions
   end
 end

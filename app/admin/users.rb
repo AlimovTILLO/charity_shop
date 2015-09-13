@@ -1,6 +1,13 @@
 ActiveAdmin.register User do
   permit_params :email, :password, :password_confirmation, :balance
 
+  batch_action :set_random_balance do |ids|
+    User.find(ids).each do |user|
+      user.update balance: rand(500...1000)
+    end
+    redirect_to collection_path, notice: 'Done'
+  end
+
   index do
     selectable_column
     id_column
