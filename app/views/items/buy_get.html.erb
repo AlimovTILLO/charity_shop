@@ -1,1 +1,21 @@
-Do u want to buy?
+<div class="jumbotron" style="text-align: center;">
+  <h1 style="">Rahmat for your purchase!</h1>
+  <p>
+    <strong style="color: #419035;"><%= @item.charity_value %> kgz.</strong>
+    to <strong>&laquo;<%= @item.foundation.name %>&raquo;</strong> foundation.
+  </p>
+
+  <p>
+    <strong style="color: #419035;">
+      <%= @item.seller_value %> <%= 'kgz.' if @item.seller_value != 'Rahmat!' %>
+    </strong>
+    to <strong>Seller</strong>
+  </p>
+
+  <p>
+    <strong style="color: #419035;"><%= @item.commission %> kgz.</strong>
+    to <strong>&laquo;Raxmat!&raquo;</strong>
+  </p>
+
+  <p><a class="btn btn-primary" href="#" role="button">Ok</a></p>
+</div>

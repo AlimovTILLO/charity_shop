@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def buy
+    @item = Item.find params[:item_id]
+
     if request.get?
       render :buy_get
     end
