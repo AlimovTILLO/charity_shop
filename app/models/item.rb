@@ -14,4 +14,12 @@ class Item < ActiveRecord::Base
   def self.charity_options
     options_for_select(Array[*CHARITIES.collect {|v| [v, CHARITIES.index(v)] }])
   end
+
+  def charity_value
+    (price * (charity/100.0)).to_i
+  end
+
+  def profit_value
+    price - charity_value
+  end
 end
