@@ -10,7 +10,7 @@
       <p>Foundation: <%= @item.foundation.name %></p>
       <p>Charity: <%= @item.charity %>%</p>
       <p class="price"><%= @item.price %></p>
-      <button class="btn btn-primary">Buy</button>
+	    <%= link_to 'Buy', item_buy_path(@item), class: 'btn btn-primary' %>
     </div>
   </div>
 </div>

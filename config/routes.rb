@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :users
-  resources :items
+  resources :items do
+    match 'buy', via: [:get, :post]
+  end
+
   root 'home#index'
 
   get '/foundations', to: 'foundations#index', as: :foundations

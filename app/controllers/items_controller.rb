@@ -2,6 +2,16 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+  def buy
+    if request.get?
+      render :buy_get
+    end
+
+    if request.post?
+      render :buy_post
+    end
+  end
+
   # GET /items
   # GET /items.json
   def index
