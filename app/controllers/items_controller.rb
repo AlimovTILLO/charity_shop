@@ -75,6 +75,7 @@ class ItemsController < ApplicationController
                                    :description,
                                    :price,
                                    :thumbnail,
-                                   :foundations_id
+                                   :foundation_id,
+                                   :charity
     end
 end

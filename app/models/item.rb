@@ -9,5 +9,9 @@ class Item < ActiveRecord::Base
   validates :description, presence: true
   validates :price, presence: true, numericality: true
   validates :foundation_id, presence: true
-  validates :charity, inclusion: CHARITIES
+  validates :charity, presence: true, inclusion: CHARITIES
+
+  def self.charity_options
+    options_for_select(Array[*CHARITIES.collect {|v| [v, CHARITIES.index(v)] }])
+  end
 end

@@ -18,6 +18,14 @@ ActiveAdmin.register Item do
     redirect_to collection_path, notice: 'Done'
   end
 
+  batch_action :set_charity do |ids|
+    Item.find(ids).each do |item|
+      item.update charity: Item::CHARITIES.sample
+    end
+    redirect_to collection_path, notice: 'Done'
+  end
+
+
   index do
     selectable_column
     column :user do |item|
@@ -35,6 +43,7 @@ ActiveAdmin.register Item do
       item.foundation.name if item.foundation
     end
     column :price
+    column :charity
     actions
   end
 
@@ -46,6 +55,7 @@ ActiveAdmin.register Item do
       row :title
       row :description
       row :price
+      row :charity
       row :thumbnail do |item|
         image_tag item.thumbnail.thumb
       end
@@ -59,6 +69,7 @@ ActiveAdmin.register Item do
       f.input :description
       f.input :price
       f.input :thumbnail
+      f.input :charity, as: :select, collection: Item::CHARITIES
     end
 
     f.actions
