@@ -2,7 +2,8 @@ ActiveAdmin.register Item do
   permit_params :title,
                 :description,
                 :price,
-                :thumbnail
+                :thumbnail,
+                :charity
 
   filter :user_email_equals
   filter :title
