@@ -10,6 +10,9 @@
       <p>Foundation: <%= @item.foundation.name %></p>
       <p>Charity: <%= @item.charity %>%</p>
       <p class="price"><%= @item.price %></p>
+	    <p class="share_link">
+	      <%= render_shareable buttons: %w(twitter facebook tumblr google_plus) %>
+	    </p>
 	    <%= link_to 'Buy', item_buy_path(@item), class: 'btn btn-primary' %>
     </div>
   </div>

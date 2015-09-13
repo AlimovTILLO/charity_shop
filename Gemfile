@@ -11,6 +11,7 @@ gem 'mini_magick'
 gem 'carrierwave'
 gem 'puma'
 gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git'
+gem 'shareable'
 
 #---------------------------------------------------------------
 # Frontend
