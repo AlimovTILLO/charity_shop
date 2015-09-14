@@ -85,21 +85,17 @@
     var $sidebar   = $("#sidebar_cats"), 
         $window    = $(window),
         offset     = $sidebar.offset(),
-        top = offset.top,
-        left = offset.left,
         topPadding = 15;
 
     $window.scroll(function() {
         if ($window.scrollTop() > offset.top) {
-            /*$sidebar.stop().animate({
-                marginTop: $window.scrollTop() - offset.top + topPadding
-            });*/
-            $sidebar.css({position: 'absolute', top: '15px', left: left});
+            $sidebar.stop().animate({
+                marginTop: ($window.scrollTop() - offset.top) + topPadding
+            });
         } else {
-            /*$sidebar.stop().animate({
+            $sidebar.stop().animate({
                 marginTop: 0
-            });*/
-            $sidebar.css({position: 'absolute', top: top + 'px', left: left});
+            });
         }
     }); 
 });
